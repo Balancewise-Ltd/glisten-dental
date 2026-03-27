@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glisten Dental Clinic | Premium Dental Care in Abuja</title>
+<meta name="description" content="Glisten Dental Clinic — A subsidiary of Advanced Dental Clinic. Premium dental care in Wuse Zone 3, Abuja.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #FDFCF9;
+  --bg-alt: #F4F1EB;
+  --surface: #FFFFFF;
+  --navy: #0D1B2A;
+  --navy-mid: #1B2D45;
+  --gold: #C69C4E;
+  --gold-bright: #DAB06A;
+  --gold-dark: #A17D33;
+  --teal: #4A9E8E;
+  --teal-soft: #D0ECE6;
+  --text: #1A1A2E;
+  --text-mid: #4A4A5A;
+  --text-light: #8A8A9A;
+  --border: rgba(0,0,0,0.06);
+  --r: 14px;
+  --r-lg: 20px;
+  --shadow: 0 8px 32px rgba(0,0,0,0.06);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.1);
+  --shadow-gold: 0 8px 32px rgba(198,156,78,0.25);
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:'Outfit',sans-serif;color:var(--text);background:var(--navy);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;}
+
+/* PRELOADER */
+.preloader{position:fixed;inset:0;z-index:99999;background:var(--navy);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px;transition:opacity .5s,visibility .5s;}
+.preloader.done{opacity:0;visibility:hidden;pointer-events:none;}
+.pl-logo{font-family:'Instrument Serif',serif;font-size:2.2rem;color:#fff;}
+.pl-logo span{color:var(--gold);}
+.pl-bar{width:120px;height:2px;background:rgba(255,255,255,.08);border-radius:2px;overflow:hidden;}
+.pl-fill{height:100%;width:0;background:var(--gold);animation:plF 1s var(--ease) forwards;}
+@keyframes plF{to{width:100%;}}
+
+/* APP */
+.app{display:flex;height:100vh;width:100vw;}
+
+/* SIDEBAR */
+.sidebar{width:260px;flex-shrink:0;background:var(--navy);display:flex;flex-direction:column;padding:28px 0;border-right:1px solid rgba(255,255,255,.04);z-index:100;}
+.sb-logo{font-family:'Instrument Serif',serif;font-size:1.5rem;color:#fff;padding:0 24px;margin-bottom:4px;}
+.sb-logo span{color:var(--gold);}
+.sb-sub{font-size:.68rem;color:rgba(255,255,255,.25);padding:0 24px;margin-bottom:36px;letter-spacing:.03em;}
+.sb-nav{display:flex;flex-direction:column;gap:2px;padding:0 10px;flex:1;}
+.sb-item{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;border:none;background:none;width:100%;font-size:.85rem;font-weight:500;color:rgba(255,255,255,.4);text-align:left;transition:all .3s var(--ease);position:relative;}
+.sb-item:hover{color:rgba(255,255,255,.7);background:rgba(255,255,255,.03);}
+.sb-item.active{color:#fff;background:rgba(198,156,78,.1);font-weight:600;}
+.sb-item.active::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:3px;height:20px;border-radius:0 3px 3px 0;background:var(--gold);}
+.sb-icon{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;background:rgba(255,255,255,.04);transition:all .3s var(--ease);}
+.sb-item.active .sb-icon{background:var(--gold);}
+.sb-footer{padding:16px 24px;margin-top:auto;border-top:1px solid rgba(255,255,255,.04);}
+.sb-cta{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:13px;border-radius:10px;background:var(--gold);color:#fff;font-size:.85rem;font-weight:600;border:none;transition:all .3s var(--ease);}
+.sb-cta:hover{background:var(--gold-dark);box-shadow:var(--shadow-gold);}
+.sb-info{margin-top:14px;font-size:.7rem;color:rgba(255,255,255,.25);text-align:center;line-height:1.6;}
+.sb-info a{color:rgba(255,255,255,.4);transition:color .3s;}
+.sb-info a:hover{color:var(--gold);}
+
+/* MOBILE HEADER */
+.mobile-header{display:none;position:fixed;top:0;left:0;right:0;z-index:200;height:60px;background:var(--navy);padding:0 20px;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.04);}
+.mh-logo{font-family:'Instrument Serif',serif;font-size:1.3rem;color:#fff;}
+.mh-logo span{color:var(--gold);}
+.hamburger{width:28px;height:20px;position:relative;background:none;border:none;z-index:301;}
+.hamburger span{position:absolute;left:0;width:100%;height:2px;background:#fff;border-radius:2px;transition:all .3s var(--ease);}
+.hamburger span:nth-child(1){top:0;}
+.hamburger span:nth-child(2){top:9px;}
+.hamburger span:nth-child(3){top:18px;}
+.hamburger.open span:nth-child(1){top:9px;transform:rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){top:9px;transform:rotate(-45deg);}
+.mobile-overlay{display:none;position:fixed;inset:0;z-index:200;background:rgba(13,27,42,.98);flex-direction:column;align-items:center;justify-content:center;gap:6px;}
+.mobile-overlay.open{display:flex;}
+.mobile-overlay button{font-family:'Instrument Serif',serif;font-size:1.6rem;color:rgba(255,255,255,.5);background:none;border:none;padding:10px 24px;transition:color .3s;}
+.mobile-overlay button:hover,.mobile-overlay button.active{color:var(--gold);}
+
+/* MAIN */
+.main{flex:1;background:var(--bg);border-radius:var(--r-lg) 0 0 var(--r-lg);overflow-y:auto;overflow-x:hidden;position:relative;}
+.main::-webkit-scrollbar{width:5px;}
+.main::-webkit-scrollbar-track{background:transparent;}
+.main::-webkit-scrollbar-thumb{background:rgba(0,0,0,.08);border-radius:3px;}
+
+/* PAGES */
+.page{display:none;animation:pgIn .45s var(--ease);}
+.page.active{display:block;}
+@keyframes pgIn{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+
+/* SHARED */
+.pg-pad{padding:48px 56px;}
+.section-label{display:inline-flex;align-items:center;gap:8px;font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:14px;}
+.section-label::before{content:'';width:18px;height:1.5px;background:var(--gold);}
+.section-title{font-family:'Instrument Serif',serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:400;line-height:1.15;color:var(--navy);margin-bottom:14px;}
+.section-desc{font-size:1rem;line-height:1.7;color:var(--text-mid);max-width:540px;}
+.btn-gold{display:inline-flex;align-items:center;gap:8px;padding:14px 30px;border-radius:100px;background:var(--gold);color:#fff;font-size:.9rem;font-weight:600;border:none;transition:all .3s var(--ease);}
+.btn-gold:hover{background:var(--gold-dark);transform:translateY(-1px);box-shadow:var(--shadow-gold);}
+
+/* HOME */
+.home-hero{min-height:100%;display:flex;align-items:center;background:linear-gradient(160deg,var(--navy),var(--navy-mid));position:relative;overflow:hidden;padding:60px;border-radius:var(--r-lg) 0 0 var(--r-lg);}
+.home-grain{position:absolute;inset:0;opacity:.03;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.home-orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.12;}
+.home-orb:nth-child(2){width:450px;height:450px;background:var(--gold);top:-10%;right:-8%;animation:oF 22s ease-in-out infinite;}
+.home-orb:nth-child(3){width:300px;height:300px;background:var(--teal);bottom:-5%;left:-8%;animation:oF 26s ease-in-out infinite reverse;}
+@keyframes oF{0%,100%{transform:translate(0,0);}50%{transform:translate(30px,-40px);}}
+.home-content{position:relative;z-index:2;max-width:600px;}
+.home-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 16px;border-radius:100px;background:rgba(198,156,78,.1);border:1px solid rgba(198,156,78,.15);font-size:.75rem;font-weight:500;color:var(--gold-bright);margin-bottom:28px;}
+.home-content h1{font-family:'Instrument Serif',serif;font-size:clamp(2.4rem,5vw,3.6rem);font-weight:400;color:#fff;line-height:1.1;margin-bottom:22px;}
+.home-content h1 em{font-style:italic;background:linear-gradient(135deg,var(--gold),var(--gold-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.home-desc{font-size:1.05rem;line-height:1.7;color:rgba(255,255,255,.45);max-width:460px;margin-bottom:36px;}
+.home-btns{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:48px;}
+.home-btns .btn-gold{font-size:.92rem;padding:15px 32px;}
+.btn-hero-sec{display:inline-flex;align-items:center;gap:8px;padding:15px 32px;border-radius:100px;border:1px solid rgba(255,255,255,.12);color:rgba(255,255,255,.7);font-size:.92rem;font-weight:500;background:none;transition:all .3s var(--ease);}
+.btn-hero-sec:hover{border-color:rgba(255,255,255,.3);background:rgba(255,255,255,.04);}
+.home-metrics{display:flex;gap:36px;}
+.hm-num{font-family:'Instrument Serif',serif;font-size:2rem;color:var(--gold);line-height:1;}
+.hm-label{font-size:.7rem;color:rgba(255,255,255,.3);text-transform:uppercase;letter-spacing:.07em;margin-top:4px;}
+.home-rating{display:flex;align-items:center;gap:12px;margin-top:32px;padding:16px 20px;border-radius:14px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);max-width:320px;}
+.hr-stars{color:var(--gold);font-size:.85rem;letter-spacing:2px;}
+.hr-text{font-size:.82rem;color:rgba(255,255,255,.5);}
+.hr-text strong{color:rgba(255,255,255,.8);}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-top:32px;}
+.svc-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:32px 28px;transition:all .4s var(--ease);position:relative;overflow:hidden;}
+.svc-card::after{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-bright));transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease);}
+.svc-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.svc-card:hover::after{transform:scaleX(1);}
+.svc-emoji{font-size:32px;margin-bottom:16px;display:block;}
+.svc-card h3{font-family:'Instrument Serif',serif;font-size:1.15rem;color:var(--navy);margin-bottom:8px;}
+.svc-card p{font-size:.88rem;color:var(--text-mid);line-height:1.65;}
+.svc-bullets{margin-top:14px;display:flex;flex-direction:column;gap:6px;}
+.svc-bullet{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--text);}
+.svc-check{width:18px;height:18px;border-radius:5px;background:var(--teal-soft);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;flex-shrink:0;}
+.svc-cta-box{margin-top:40px;padding:24px;border-radius:var(--r);background:var(--bg-alt);border:1px solid var(--border);}
+.svc-cta-box h3{font-family:'Instrument Serif',serif;font-size:1.1rem;color:var(--navy);margin-bottom:6px;}
+.svc-cta-box p{font-size:.88rem;color:var(--text-mid);line-height:1.6;margin-bottom:16px;}
+
+/* ABOUT */
+.about-layout{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;}
+.about-img{width:100%;aspect-ratio:4/5;border-radius:var(--r-lg);background:linear-gradient(160deg,var(--navy),var(--navy-mid));display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative;}
+.about-img-inner{text-align:center;color:#fff;padding:40px;}
+.about-img-inner .big-e{font-size:64px;margin-bottom:14px;display:block;}
+.about-img-inner h3{font-family:'Instrument Serif',serif;font-size:1.3rem;margin-bottom:4px;}
+.about-img-inner p{font-size:.82rem;color:rgba(255,255,255,.45);}
+.about-visual{position:relative;}
+.about-badge{position:absolute;bottom:-16px;right:-16px;width:110px;height:110px;border-radius:var(--r-lg);background:var(--gold);display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:var(--shadow-gold);z-index:3;}
+.ab-num{font-family:'Instrument Serif',serif;font-size:1.8rem;color:#fff;line-height:1;}
+.ab-label{font-size:.6rem;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.05em;margin-top:3px;}
+.about-text .desc{color:var(--text-mid);font-size:.95rem;line-height:1.8;margin-bottom:24px;}
+.about-feats{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.about-feat{display:flex;align-items:center;gap:10px;padding:12px 14px;border-radius:var(--r);background:var(--bg-alt);font-size:.85rem;font-weight:500;transition:all .3s var(--ease);}
+.about-feat:hover{transform:translateX(4px);}
+.af-icon{width:30px;height:30px;border-radius:8px;background:var(--teal-soft);display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0;}
+.about-hours{margin-top:32px;padding:24px;border-radius:var(--r);background:var(--bg-alt);border:1px solid var(--border);}
+.about-hours h3{font-family:'Instrument Serif',serif;font-size:1.05rem;color:var(--navy);margin-bottom:12px;}
+.hours-row{display:flex;justify-content:space-between;padding:8px 0;font-size:.88rem;color:var(--text-mid);border-bottom:1px solid var(--border);}
+.hours-row:last-child{border:none;}
+.hours-row .day{font-weight:600;color:var(--navy);}
+
+/* GALLERY */
+.gallery-intro{font-size:.95rem;color:var(--text-mid);line-height:1.7;max-width:540px;margin-bottom:32px;}
+.ig-embeds{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;align-items:start;}
+.ig-embed-wrapper{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;transition:all .3s var(--ease);}
+.ig-embed-wrapper:hover{box-shadow:var(--shadow);}
+.ig-embed-wrapper blockquote{margin:0!important;border:none!important;padding:0!important;max-width:100%!important;min-width:100%!important;}
+.tiktok-embeds{margin-top:40px;}
+.tiktok-embeds h3{font-family:'Instrument Serif',serif;font-size:1.2rem;color:var(--navy);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.tt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px;align-items:start;}
+.tt-wrapper{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;}
+.gallery-cta{margin-top:40px;padding:32px;border-radius:var(--r-lg);background:linear-gradient(135deg,var(--navy),var(--navy-mid));display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.gc-text h3{font-family:'Instrument Serif',serif;font-size:1.3rem;color:#fff;margin-bottom:4px;}
+.gc-text p{font-size:.88rem;color:rgba(255,255,255,.45);}
+.gc-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.gc-btn{padding:12px 24px;border-radius:100px;background:var(--gold);color:#fff;font-size:.85rem;font-weight:600;border:none;transition:all .3s var(--ease);display:inline-flex;align-items:center;gap:6px;}
+.gc-btn:hover{background:var(--gold-dark);}
+
+/* REVIEWS */
+.review-summary{display:flex;align-items:center;gap:24px;padding:28px;border-radius:var(--r-lg);background:var(--bg-alt);border:1px solid var(--border);margin:24px 0 32px;flex-wrap:wrap;}
+.rs-big{font-family:'Instrument Serif',serif;font-size:3.2rem;color:var(--navy);line-height:1;}
+.rs-stars{color:var(--gold);font-size:1.1rem;letter-spacing:2px;}
+.rs-text{font-size:.88rem;color:var(--text-mid);}
+.rs-text strong{color:var(--navy);}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+.rev-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:28px 24px;transition:all .3s var(--ease);}
+.rev-card:hover{transform:translateY(-3px);box-shadow:var(--shadow);}
+.rev-stars{color:var(--gold);font-size:.82rem;letter-spacing:2px;margin-bottom:14px;}
+.rev-text{font-size:.9rem;line-height:1.7;color:var(--text);font-style:italic;margin-bottom:18px;}
+.rev-author{display:flex;align-items:center;gap:10px;}
+.rev-av{width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;font-size:.75rem;}
+.rev-name{font-weight:600;font-size:.85rem;color:var(--navy);}
+.rev-role{font-size:.75rem;color:var(--text-light);}
+.google-link{margin-top:28px;display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:100px;background:var(--surface);border:1px solid var(--border);font-size:.88rem;font-weight:500;color:var(--text);transition:all .3s var(--ease);}
+.google-link:hover{border-color:var(--gold);color:var(--gold);}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;margin-top:32px;}
+.contact-info-cards{display:flex;flex-direction:column;gap:12px;}
+.ci-card{padding:24px;border-radius:var(--r);background:var(--surface);border:1px solid var(--border);display:flex;align-items:flex-start;gap:14px;transition:all .3s var(--ease);}
+.ci-card:hover{transform:translateX(4px);box-shadow:var(--shadow);}
+.ci-icon{width:44px;height:44px;border-radius:12px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.ci-card h4{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:3px;}
+.ci-card p{font-size:.85rem;color:var(--text-mid);line-height:1.5;}
+.ci-card a,.ci-card .gold-text{color:var(--gold);font-weight:500;}
+.contact-map{border-radius:var(--r-lg);overflow:hidden;border:1px solid var(--border);height:100%;min-height:400px;}
+.contact-map iframe{width:100%;height:100%;border:none;display:block;}
+.contact-socials{margin-top:32px;padding:28px;border-radius:var(--r-lg);background:linear-gradient(135deg,var(--navy),var(--navy-mid));display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.cs-text h3{font-family:'Instrument Serif',serif;font-size:1.1rem;color:#fff;margin-bottom:3px;}
+.cs-text p{font-size:.82rem;color:rgba(255,255,255,.4);}
+.cs-links{display:flex;gap:10px;}
+.cs-link{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:12px;font-weight:700;transition:all .3s;}
+.cs-link:hover{background:var(--gold);border-color:var(--gold);color:#fff;}
+
+/* WA FLOAT */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:500;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);font-size:26px;color:#fff;transition:all .3s var(--ease);}
+.wa-float:hover{transform:scale(1.08)translateY(-2px);}
+.wa-pulse{position:absolute;inset:-5px;border:2px solid #25D366;border-radius:50%;animation:waP 2s ease-out infinite;}
+@keyframes waP{0%{transform:scale(1);opacity:.5;}100%{transform:scale(1.4);opacity:0;}}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .sidebar{display:none;}
+  .mobile-header{display:flex;}
+  .main{border-radius:0;padding-top:60px;}
+  .home-hero{border-radius:0;padding:40px 24px;min-height:calc(100vh - 60px);}
+  .pg-pad{padding:32px 20px;}
+  .about-layout,.contact-grid{grid-template-columns:1fr;}
+  .contact-map{min-height:300px;}
+  .services-grid,.ig-embeds,.reviews-grid{grid-template-columns:1fr;}
+  .gallery-cta{flex-direction:column;text-align:center;}
+  .gc-btns{justify-content:center;}
+  .home-metrics{flex-wrap:wrap;gap:24px;}
+  .about-feats{grid-template-columns:1fr;}
+  .contact-socials{flex-direction:column;text-align:center;}
+  .cs-links{justify-content:center;}
+  .tt-grid{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<div class="preloader" id="preloader">
+  <div class="pl-logo">Glisten<span>.</span></div>
+  <div class="pl-bar"><div class="pl-fill"></div></div>
+</div>
+
+<div class="mobile-header">
+  <div class="mh-logo">Glisten<span>.</span></div>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</div>
+<div class="mobile-overlay" id="mobileOverlay">
+  <button onclick="goPage('home')">Home</button>
+  <button onclick="goPage('services')">Services</button>
+  <button onclick="goPage('about')">About</button>
+  <button onclick="goPage('gallery')">Gallery</button>
+  <button onclick="goPage('reviews')">Reviews</button>
+  <button onclick="goPage('contact')">Contact</button>
+</div>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sb-logo">Glisten<span>.</span></div>
+    <div class="sb-sub">A Subsidiary of Advanced Dental Clinic</div>
+    <nav class="sb-nav">
+      <button class="sb-item active" data-page="home"><div class="sb-icon">🏠</div>Home</button>
+      <button class="sb-item" data-page="services"><div class="sb-icon">🦷</div>Services</button>
+      <button class="sb-item" data-page="about"><div class="sb-icon">ℹ️</div>About</button>
+      <button class="sb-item" data-page="gallery"><div class="sb-icon">📸</div>Gallery</button>
+      <button class="sb-item" data-page="reviews"><div class="sb-icon">⭐</div>Reviews</button>
+      <button class="sb-item" data-page="contact"><div class="sb-icon">📍</div>Contact</button>
+    </nav>
+    <div class="sb-footer">
+      <a href="tel:+2348061171690"><button class="sb-cta">📞 Book Appointment</button></a>
+      <div class="sb-info"><a href="https://wa.me/2348061171690">WhatsApp Us</a><br>+234 806 117 1690</div>
+    </div>
+  </aside>
+
+  <main class="main" id="main">
+
+    <!-- HOME -->
+    <div class="page active" id="page-home">
+      <div class="home-hero">
+        <div class="home-grain"></div>
+        <div class="home-orb"></div><div class="home-orb"></div><div class="home-orb"></div>
+        <div class="home-content">
+          <div class="home-badge">✦ Dental Excellence in Wuse, Abuja</div>
+          <h1>Your Pathway to a <em>Brighter</em> Smile</h1>
+          <p class="home-desc">Premium dental care in a warm, welcoming environment. From routine check-ups to advanced cosmetic treatments — your smile is in expert hands.</p>
+          <div class="home-btns">
+            <a href="tel:+2348061171690" class="btn-gold">📞 Book Appointment</a>
+            <button class="btn-hero-sec" onclick="goPage('services')">Our Services →</button>
+          </div>
+          <div class="home-metrics">
+            <div><div class="hm-num">4.7★</div><div class="hm-label">Google Rating</div></div>
+            <div><div class="hm-num">19+</div><div class="hm-label">Google Reviews</div></div>
+            <div><div class="hm-num">9+</div><div class="hm-label">Specialist Services</div></div>
+          </div>
+          <div class="home-rating">
+            <div>
+              <div class="hr-stars">★★★★★</div>
+              <div class="hr-text"><strong>"Number one dental clinic in Abuja"</strong> — Patient review</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SERVICES -->
+    <div class="page" id="page-services">
+      <div class="pg-pad">
+        <div class="section-label">Our Services</div>
+        <h2 class="section-title">Comprehensive Dental Solutions</h2>
+        <p class="section-desc">Every treatment is delivered with precision, care, and the latest dental technology — tailored to your unique needs.</p>
+        <div class="services-grid">
+          <div class="svc-card"><span class="svc-emoji">✨</span><h3>Teeth Whitening</h3><p>Professional-grade whitening that removes years of stains for a brilliantly radiant smile.</p><div class="svc-bullets"><div class="svc-bullet"><div class="svc-check">✓</div>Visible results in one session</div><div class="svc-bullet"><div class="svc-check">✓</div>Safe for sensitive teeth</div></div></div>
+          <div class="svc-card"><span class="svc-emoji">💎</span><h3>E-Max Veneers</h3><p>Premium E-Max porcelain veneers for a natural, magazine-cover smile transformation.</p><div class="svc-bullets"><div class="svc-bullet"><div class="svc-check">✓</div>Custom-designed for you</div><div class="svc-bullet"><div class="svc-check">✓</div>Ultra-natural look</div></div></div>
+          <div class="svc-card"><span class="svc-emoji">📐</span><h3>Braces & Invisalign</h3><p>Traditional braces and Invisalign clear aligners to straighten teeth and perfect your bite.</p><div class="svc-bullets"><div class="svc-bullet"><div class="svc-check">✓</div>Clear aligner option</div><div class="svc-bullet"><div class="svc-check">✓</div>All ages welcome</div></div></div>
+          <div class="svc-card"><span class="svc-emoji">🪥</span><h3>Scaling & Polishing</h3><p>Deep cleaning to remove plaque and tartar for fresher breath and healthier gums.</p><div class="svc-bullets"><div class="svc-bullet"><div class="svc-check">✓</div>Prevents gum disease</div><div class="svc-bullet"><div class="svc-check">✓</div>From ₦20,000/session</div></div></div>
+          <div class="svc-card"><span class="svc-emoji">🔧</span><h3>Root Canal Therapy</h3><p>Expert root canal procedures to relieve pain and preserve your natural tooth.</p><div class="svc-bullets"><div class="svc-bullet"><div class="svc-check">✓</div>Saves natural teeth</div><div class="svc-bullet"><div class="svc-check">✓</div>Virtually painless</div></div></div>
+          <div class="svc-card"><span class="svc-emoji">🦷</span><h3>Dental Implants</h3><p>Top-quality I-Bar Titanium with Zircon implants for permanent tooth replacement.</p><div class="svc-bullets"><div class="svc-bullet"><div class="svc-check">✓</div>Titanium + Zircon</div><div class="svc-bullet"><div class="svc-check">✓</div>Permanent solution</div></div></div>
+          <div class="svc-card"><span class="svc-emoji">🩹</span><h3>Dental Fillings</h3><p>Durable, aesthetic fillings using the latest composite and ceramic materials.</p><div class="svc-bullets"><div class="svc-bullet"><div class="svc-check">✓</div>Tooth-coloured materials</div><div class="svc-bullet"><div class="svc-check">✓</div>Same-day treatment</div></div></div>
+          <div class="svc-card"><span class="svc-emoji">🦷</span><h3>Wisdom Teeth Removal</h3><p>Safe, precise extractions including impacted wisdom teeth with full aftercare.</p><div class="svc-bullets"><div class="svc-bullet"><div class="svc-check">✓</div>Gentle techniques</div><div class="svc-bullet"><div class="svc-check">✓</div>Comprehensive aftercare</div></div></div>
+          <div class="svc-card"><span class="svc-emoji">👑</span><h3>Crowns & Dentures</h3><p>Custom crowns and partial/full dentures to restore function and beauty.</p><div class="svc-bullets"><div class="svc-bullet"><div class="svc-check">✓</div>Natural-looking results</div><div class="svc-bullet"><div class="svc-check">✓</div>Durable & comfortable</div></div></div>
+        </div>
+        <div class="svc-cta-box">
+          <h3>💬 Pricing & Consultations</h3>
+          <p>Prices vary by treatment. Contact us for a free consultation and personalised quote. Follow our Instagram for seasonal discounts and offers.</p>
+          <a href="https://wa.me/2348061171690?text=Hi%20Glisten%20Dental!%20I'd%20like%20to%20enquire%20about%20pricing." class="btn-gold">WhatsApp for Pricing →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ABOUT -->
+    <div class="page" id="page-about">
+      <div class="pg-pad">
+        <div class="about-layout">
+          <div class="about-visual">
+            <div class="about-img"><div class="about-img-inner"><span class="big-e">🏥</span><h3>Glisten Dental Clinic</h3><p>6 Tamale St, Wuse Zone 3, Abuja</p></div></div>
+            <div class="about-badge"><div class="ab-num">4.7</div><div class="ab-label">Google Rating</div></div>
+          </div>
+          <div class="about-text">
+            <div class="section-label">About Glisten</div>
+            <h2 class="section-title">Where Expertise Meets Compassion</h2>
+            <p class="desc">Glisten Dental Clinic is your top choice for comprehensive dental care at 6 Tamale Street, Wuse Zone 3, Abuja. As a subsidiary of Advanced Dental Clinic, our expert team specialises in teeth whitening, veneers, braces, dental implants, and much more.</p>
+            <p class="desc">Whether you need routine cleanings, root canal procedures, wisdom teeth removal, or custom dentures, our modern facility is dedicated to ensuring your oral health and enhancing your smile with precision and comfort.</p>
+            <div class="about-feats">
+              <div class="about-feat"><div class="af-icon">🔬</div>Modern Equipment</div>
+              <div class="about-feat"><div class="af-icon">👶</div>Child-Friendly</div>
+              <div class="about-feat"><div class="af-icon">💆</div>Anxiety-Free Care</div>
+              <div class="about-feat"><div class="af-icon">📋</div>Personalised Plans</div>
+              <div class="about-feat"><div class="af-icon">🏆</div>I-Bar Titanium Implants</div>
+              <div class="about-feat"><div class="af-icon">✨</div>E-Max Veneers</div>
+            </div>
+            <div class="about-hours">
+              <h3>🕐 Opening Hours</h3>
+              <div class="hours-row"><span class="day">Monday – Friday</span><span>9:00 AM – 9:00 PM</span></div>
+              <div class="hours-row"><span class="day">Saturday</span><span>9:00 AM – 9:00 PM</span></div>
+              <div class="hours-row"><span class="day">Sunday</span><span>Closed</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- GALLERY -->
+    <div class="page" id="page-gallery">
+      <div class="pg-pad">
+        <div class="section-label">Gallery & Social</div>
+        <h2 class="section-title">See Our Work</h2>
+        <p class="gallery-intro">Real results from real patients. Follow us on Instagram and TikTok to see smile transformations, behind-the-scenes content, and special offers.</p>
+        <div class="ig-embeds" id="igEmbeds">
+          <div class="ig-embed-wrapper">
+            <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DQ32WZ8DMiB/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:540px;min-width:280px;padding:0;width:100%;"><div style="padding:16px;"><a href="https://www.instagram.com/reel/DQ32WZ8DMiB/" style="color:#000;font-family:Arial,sans-serif;font-size:14px;line-height:17px;" target="_blank">View on Instagram</a></div></blockquote>
+          </div>
+          <div class="ig-embed-wrapper">
+            <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/glistendentalclinic/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:540px;min-width:280px;padding:0;width:100%;"><div style="padding:16px;"><a href="https://www.instagram.com/glistendentalclinic/" style="color:#000;font-family:Arial,sans-serif;font-size:14px;line-height:17px;" target="_blank">@glistendentalclinic on Instagram</a></div></blockquote>
+          </div>
+        </div>
+        <div class="tiktok-embeds">
+          <h3>🎵 TikTok</h3>
+          <div class="tt-grid">
+            <div class="tt-wrapper">
+              <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@glistendentalclincabuja" data-unique-id="glistendentalclincabuja" data-embed-type="creator" style="max-width:780px;min-width:288px;"><section><a target="_blank" href="https://www.tiktok.com/@glistendentalclincabuja">@glistendentalclincabuja</a></section></blockquote>
+            </div>
+          </div>
+        </div>
+        <div class="gallery-cta">
+          <div class="gc-text"><h3>Follow Us for More</h3><p>Daily smile transformations and exclusive offers</p></div>
+          <div class="gc-btns">
+            <a href="https://www.instagram.com/glistendentalclinic/" target="_blank" class="gc-btn">📷 Instagram</a>
+            <a href="https://www.tiktok.com/@glistendentalclincabuja" target="_blank" class="gc-btn">🎵 TikTok</a>
+            <a href="https://www.facebook.com/glistendentalclinic/" target="_blank" class="gc-btn">📘 Facebook</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- REVIEWS -->
+    <div class="page" id="page-reviews">
+      <div class="pg-pad">
+        <div class="section-label">Patient Stories</div>
+        <h2 class="section-title">What Our Patients Say</h2>
+        <div class="review-summary">
+          <div class="rs-big">4.7</div>
+          <div><div class="rs-stars">★★★★★</div><div class="rs-text">Based on <strong>19 Google Reviews</strong> · 5/5 on Facebook</div></div>
+        </div>
+        <div class="reviews-grid">
+          <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"The clinic is immaculately clean and the staff are so welcoming. I was terrified of the dentist but Glisten made me feel completely at ease. My whitening results are amazing!"</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--gold),var(--gold-dark))">AA</div><div><div class="rev-name">Adaeze A.</div><div class="rev-role">Teeth Whitening</div></div></div></div>
+          <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Number one dental clinic in Abuja! I've been bringing my whole family here. The children love coming — friendly environment and incredibly patient dentists."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--teal),#358A7A)">OK</div><div><div class="rev-name">Olumide K.</div><div class="rev-role">Family Patient</div></div></div></div>
+          <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Had a root canal done here and the experience was nothing like I feared. Professional, painless, and thorough aftercare guidance. Dentists who truly care."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#7C5CBF,#5A3D9E)">FI</div><div><div class="rev-name">Fatima I.</div><div class="rev-role">Root Canal</div></div></div></div>
+          <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Got my E-Max veneers done at Glisten and I'm absolutely over the moon. Natural-looking, comfortable, and the process was explained every step of the way."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#E8735A,#C25A42)">BT</div><div><div class="rev-name">Binta T.</div><div class="rev-role">E-Max Veneers</div></div></div></div>
+          <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Best dental clinic in Wuse! Scaling and polishing was quick, painless, and my teeth have never felt this clean. Staff go above and beyond."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--gold),#C77D33)">EN</div><div><div class="rev-name">Emeka N.</div><div class="rev-role">Scaling & Polishing</div></div></div></div>
+          <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Walked into a clinic that feels calm and welcoming. The attentive care was delightful — whether whitening, veneers, or routine cleaning, the team is fantastic."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#4A7EC6,#365DA0)">AS</div><div><div class="rev-name">Amina S.</div><div class="rev-role">General Care</div></div></div></div>
+        </div>
+        <a href="https://www.google.com/search?q=Glisten+Dental+Clinic+Abuja+reviews" target="_blank" class="google-link">⭐ See all reviews on Google →</a>
+      </div>
+    </div>
+
+    <!-- CONTACT -->
+    <div class="page" id="page-contact">
+      <div class="pg-pad">
+        <div class="section-label">Get in Touch</div>
+        <h2 class="section-title">Visit Us Today</h2>
+        <p class="section-desc">Book an appointment or walk in during opening hours. We'd love to welcome you.</p>
+        <div class="contact-grid">
+          <div class="contact-info-cards">
+            <div class="ci-card"><div class="ci-icon">📍</div><div><h4>Address</h4><p>6 Tamale Street, behind FRSC HQ<br>Opp. Federal Civil Service Commission<br>Wuse Zone 3, Abuja 904101, FCT</p></div></div>
+            <a href="tel:+2348061171690" class="ci-card"><div class="ci-icon">📞</div><div><h4>Phone</h4><p><span class="gold-text">+234 806 117 1690</span></p></div></a>
+            <a href="https://wa.me/2348061171690?text=Hi%20Glisten%20Dental!%20I'd%20like%20to%20book%20an%20appointment." target="_blank" class="ci-card"><div class="ci-icon">💬</div><div><h4>WhatsApp</h4><p><span class="gold-text">Message us directly →</span></p></div></a>
+            <a href="mailto:glistendentalclinic@gmail.com" class="ci-card"><div class="ci-icon">✉️</div><div><h4>Email</h4><p><span class="gold-text">glistendentalclinic@gmail.com</span></p></div></a>
+            <div class="ci-card"><div class="ci-icon">🕐</div><div><h4>Opening Hours</h4><p>Mon – Sat: 9 AM – 9 PM<br>Sunday: Closed</p></div></div>
+          </div>
+          <div class="contact-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.5!2d7.4768!3d9.0667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0b1a5b0e1b5f%3A0x0!2zOcKwMDQnMDAuMSJOIDfCsDI4JzM2LjUiRQ!5e0!3m2!1sen!2sng!4v1!" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        <div class="contact-socials">
+          <div class="cs-text"><h3>Follow Glisten Dental</h3><p>Offers, transformations & oral health tips</p></div>
+          <div class="cs-links">
+            <a href="https://www.instagram.com/glistendentalclinic/" target="_blank" class="cs-link">IG</a>
+            <a href="https://www.tiktok.com/@glistendentalclincabuja" target="_blank" class="cs-link">TK</a>
+            <a href="https://www.facebook.com/glistendentalclinic/" target="_blank" class="cs-link">FB</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<a href="https://wa.me/2348061171690?text=Hi%20Glisten%20Dental!%20I'd%20like%20to%20book%20an%20appointment." target="_blank" class="wa-float">💬<div class="wa-pulse"></div></a>
+
+<script async src="//www.instagram.com/embed.js"></script>
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+<script>
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('preloader').classList.add('done'),1200);});
+
+function goPage(name){
+  document.querySelectorAll('.sb-item').forEach(b=>b.classList.remove('active'));
+  const sb=document.querySelector('.sb-item[data-page="'+name+'"]');
+  if(sb)sb.classList.add('active');
+  document.querySelectorAll('.mobile-overlay button').forEach(b=>{
+    b.classList.toggle('active',b.textContent.trim().toLowerCase()===name||(name==='gallery'&&b.textContent.trim().toLowerCase()==='gallery'));
+  });
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const pg=document.getElementById('page-'+name);
+  if(pg){pg.classList.add('active');document.querySelector('.main').scrollTo({top:0,behavior:'instant'});}
+  closeMobile();
+  if(name==='gallery'){setTimeout(()=>{if(window.instgrm)window.instgrm.Embeds.process();},400);}
+}
+document.querySelectorAll('.sb-item').forEach(b=>{b.addEventListener('click',()=>goPage(b.dataset.page));});
+
+const ham=document.getElementById('hamburger'),ov=document.getElementById('mobileOverlay');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');ov.classList.toggle('open');});
+function closeMobile(){ham.classList.remove('open');ov.classList.remove('open');}
+</script>
+</body>
+</html>
