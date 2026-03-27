@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Glisten Dental Clinic | Premium Dental Care in Abuja</title>
+<meta name="description" content="Glisten Dental Clinic — A subsidiary of Advanced Dental Clinic. Premium dental care in Wuse Zone 3, Abuja.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cream: #FAF7F2;
+  --warm-white: #FFFFFF;
+  --gold: #C5A467;
+  --gold-light: #D4BA82;
+  --gold-dark: #A8884A;
+  --navy: #1A2332;
+  --navy-light: #243044;
+  --charcoal: #2D3748;
+  --slate: #5A6577;
+  --sage: #8FA68E;
+  --sage-light: #D4E0D3;
+  --blush: #F0E6DD;
+  --radius: 12px;
+  --radius-lg: 20px;
+  --shadow: 0 4px 24px rgba(26,35,50,0.08);
+  --shadow-lg: 0 12px 48px rgba(26,35,50,0.12);
+  --ease: cubic-bezier(0.16,1,0.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;overflow:hidden;}
+body{font-family:'DM Sans',sans-serif;color:var(--charcoal);background:var(--cream);-webkit-font-smoothing:antialiased;}
+a{text-decoration:none;color:inherit;}
+button{font-family:inherit;cursor:pointer;}
+img{display:block;max-width:100%;height:auto;}
+
+/* ===== PRELOADER ===== */
+.preloader{position:fixed;inset:0;z-index:99999;background:var(--navy);display:flex;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s;}
+.preloader.done{opacity:0;visibility:hidden;pointer-events:none;}
+.preloader-tooth::before{content:'🦷';font-size:48px;animation:tp 1.2s ease-in-out infinite;display:block;}
+@keyframes tp{0%,100%{transform:scale(1);opacity:.6}50%{transform:scale(1.15);opacity:1}}
+
+/* ===== NAV ===== */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:9000;
+  padding:18px 48px;display:flex;align-items:center;justify-content:space-between;
+  transition:all .4s ease;background:transparent;
+}
+nav.light{
+  background:rgba(255,255,255,.92);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  padding:14px 48px;box-shadow:0 1px 24px rgba(26,35,50,.06);
+}
+.nav-logo{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:600;color:var(--warm-white);transition:color .3s;}
+nav.light .nav-logo{color:var(--navy);}
+.nav-logo span{color:var(--gold);}
+.nav-links{display:flex;gap:6px;align-items:center;}
+.nav-link{
+  padding:8px 18px;border-radius:100px;
+  font-size:.875rem;font-weight:500;
+  color:rgba(255,255,255,.75);background:none;border:none;
+  transition:all .3s ease;
+}
+nav.light .nav-link{color:var(--slate);}
+.nav-link:hover{color:var(--gold);}
+.nav-link.active{color:var(--warm-white);background:rgba(197,164,103,.15);font-weight:600;}
+nav.light .nav-link.active{color:var(--gold);background:rgba(197,164,103,.1);}
+.nav-cta{
+  padding:10px 24px;border-radius:100px;
+  background:var(--gold);color:var(--warm-white);
+  font-size:.875rem;font-weight:600;border:none;margin-left:12px;
+  transition:all .3s ease;
+}
+.nav-cta:hover{background:var(--gold-dark);transform:translateY(-1px);}
+.hamburger{display:none;background:none;border:none;width:28px;height:20px;position:relative;z-index:9999;}
+.hamburger span{position:absolute;left:0;width:100%;height:2px;background:var(--warm-white);border-radius:2px;transition:all .3s var(--ease);}
+nav.light .hamburger span{background:var(--navy);}
+.hamburger span:nth-child(1){top:0}
+.hamburger span:nth-child(2){top:9px}
+.hamburger span:nth-child(3){top:18px}
+.hamburger.open span{background:var(--warm-white)!important;}
+.hamburger.open span:nth-child(1){top:9px;transform:rotate(45deg)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){top:9px;transform:rotate(-45deg)}
+.mob-menu{
+  position:fixed;inset:0;z-index:8999;background:rgba(26,35,50,.98);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;
+  opacity:0;visibility:hidden;transition:all .4s var(--ease);
+}
+.mob-menu.open{opacity:1;visibility:visible;}
+.mob-menu button{
+  font-family:'Playfair Display',serif;font-size:1.6rem;
+  color:rgba(255,255,255,.5);background:none;border:none;padding:10px 24px;transition:color .3s;
+}
+.mob-menu button:hover,.mob-menu button.active{color:var(--gold);}
+.mob-menu .mob-cta{
+  margin-top:16px;padding:14px 36px;border-radius:100px;
+  background:var(--gold);color:var(--warm-white);
+  font-family:'DM Sans',sans-serif;font-size:1rem;font-weight:600;
+}
+
+/* ===== MAIN SCROLL ===== */
+.main-scroll{height:100vh;overflow-y:auto;overflow-x:hidden;}
+.main-scroll::-webkit-scrollbar{width:5px;}
+.main-scroll::-webkit-scrollbar-thumb{background:rgba(0,0,0,.08);border-radius:3px;}
+
+/* ===== PAGES ===== */
+.page{display:none;animation:pgIn .5s var(--ease);}
+.page.active{display:block;}
+@keyframes pgIn{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ===== SHARED ===== */
+.section-pad{padding:100px 48px;}
+.section-tag{display:inline-block;font-size:.75rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--gold);margin-bottom:16px;}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(2rem,3.5vw,2.8rem);font-weight:600;color:var(--navy);line-height:1.2;margin-bottom:16px;}
+.section-desc{color:var(--slate);font-size:1.05rem;line-height:1.7;}
+.section-header{text-align:center;max-width:600px;margin:0 auto 64px;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--gold);color:var(--warm-white);padding:16px 32px;border-radius:100px;font-size:.95rem;font-weight:600;border:none;transition:all .3s;cursor:pointer;}
+.btn-primary:hover{background:var(--gold-dark);transform:translateY(-2px);box-shadow:0 8px 32px rgba(197,164,103,.3);}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--warm-white);padding:16px 32px;border-radius:100px;font-size:.95rem;font-weight:500;border:1px solid rgba(255,255,255,.2);transition:all .3s;}
+.btn-secondary:hover{border-color:rgba(255,255,255,.5);background:rgba(255,255,255,.05);}
+
+/* ===== HOME ===== */
+.hero{min-height:100vh;background:linear-gradient(165deg,var(--navy) 0%,var(--navy-light) 40%,#2A3A50 100%);display:flex;align-items:center;position:relative;overflow:hidden;}
+.hero-bg{position:absolute;inset:0;background-image:radial-gradient(circle at 75% 25%,rgba(197,164,103,.08) 0%,transparent 50%),radial-gradient(circle at 20% 80%,rgba(143,166,142,.06) 0%,transparent 40%);}
+.hero-float{position:absolute;border-radius:50%;filter:blur(80px);opacity:.15;}
+.hf1{width:500px;height:500px;background:var(--gold);top:-10%;right:-5%;animation:f1 20s ease-in-out infinite;}
+.hf2{width:350px;height:350px;background:var(--sage);bottom:5%;left:-5%;animation:f2 25s ease-in-out infinite;}
+.hf3{width:200px;height:200px;background:var(--gold-light);top:50%;left:40%;animation:f3 18s ease-in-out infinite;}
+@keyframes f1{0%,100%{transform:translate(0,0)}50%{transform:translate(-30px,40px)}}
+@keyframes f2{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-30px)}}
+@keyframes f3{0%,100%{transform:translate(0,0)}50%{transform:translate(-20px,-20px)}}
+.hero-inner{max-width:1280px;margin:0 auto;padding:120px 48px 80px;position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+.hero-text{animation:fadeUp 1s ease .3s both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(197,164,103,.15);border:1px solid rgba(197,164,103,.25);border-radius:100px;padding:8px 18px;font-size:.8rem;font-weight:500;color:var(--gold-light);letter-spacing:.06em;text-transform:uppercase;margin-bottom:28px;}
+.hero-badge::before{content:'✦';}
+.hero h1{font-family:'Playfair Display',serif;font-size:clamp(2.8rem,5vw,4rem);font-weight:600;color:var(--warm-white);line-height:1.12;margin-bottom:24px;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{font-size:1.1rem;line-height:1.7;color:rgba(255,255,255,.65);max-width:480px;margin-bottom:36px;}
+.hero-actions{display:flex;gap:16px;flex-wrap:wrap;}
+.hero-right{position:relative;animation:fadeUp 1s ease .6s both;}
+.hero-img{width:100%;height:480px;border-radius:var(--radius-lg);overflow:hidden;position:relative;}
+.hero-img img{width:100%;height:100%;object-fit:cover;}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(26,35,50,.2),transparent 40%,transparent 60%,rgba(26,35,50,.3));}
+.hero-card{
+  position:absolute;bottom:24px;left:24px;right:24px;
+  background:rgba(255,255,255,.1);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);
+  border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px 24px;
+  display:flex;align-items:center;gap:16px;
+}
+.hc-icon{width:48px;height:48px;border-radius:12px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;}
+.hc-text h4{font-family:'Playfair Display',serif;font-size:1rem;color:#fff;margin-bottom:2px;}
+.hc-text p{font-size:.78rem;color:rgba(255,255,255,.5);}
+.hero-metrics{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap;}
+.hm{text-align:left;}
+.hm-num{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--gold);line-height:1;}
+.hm-label{font-size:.7rem;color:rgba(255,255,255,.35);text-transform:uppercase;letter-spacing:.06em;margin-top:4px;}
+
+/* ===== TRUST BAR ===== */
+.trust-bar{background:var(--warm-white);padding:32px 48px;display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap;border-bottom:1px solid rgba(0,0,0,.04);}
+.trust-item{display:flex;align-items:center;gap:12px;color:var(--slate);font-size:.88rem;font-weight:500;}
+.trust-icon{width:40px;height:40px;background:var(--blush);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;}
+
+/* ===== SERVICES ===== */
+.svc-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px;}
+.svc-card{background:var(--warm-white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(0,0,0,.04);transition:all .4s ease;position:relative;}
+.svc-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));transform:scaleX(0);transform-origin:left;transition:transform .4s ease;}
+.svc-card:hover::before{transform:scaleX(1);}
+.svc-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg);}
+.svc-card-img{height:160px;overflow:hidden;}
+.svc-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
+.svc-card:hover .svc-card-img img{transform:scale(1.05);}
+.svc-card-body{padding:24px;}
+.svc-icon{width:42px;height:42px;background:linear-gradient(135deg,var(--blush),var(--sage-light));border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:14px;}
+.svc-card-body h3{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);margin-bottom:8px;}
+.svc-card-body p{color:var(--slate);font-size:.88rem;line-height:1.6;}
+.svc-cta-box{max-width:1200px;margin:48px auto 0;padding:40px;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--navy),var(--navy-light));display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.svc-cta-text h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:6px;}
+.svc-cta-text p{color:rgba(255,255,255,.45);font-size:.9rem;}
+
+/* ===== ABOUT ===== */
+.about-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;}
+.about-img-wrap{position:relative;border-radius:var(--radius-lg);overflow:hidden;}
+.about-img-wrap img{width:100%;height:450px;object-fit:cover;}
+.about-accent{position:absolute;bottom:-16px;right:-16px;width:120px;height:120px;background:var(--gold);border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;flex-direction:column;box-shadow:var(--shadow-lg);z-index:3;}
+.about-accent-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--warm-white);}
+.about-accent-label{font-size:.7rem;color:rgba(255,255,255,.8);text-transform:uppercase;letter-spacing:.05em;}
+.about-text h3{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--navy);margin-bottom:16px;}
+.about-text p{color:var(--slate);font-size:.95rem;line-height:1.8;margin-bottom:20px;}
+.about-feats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:24px;}
+.about-feat{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--cream);border-radius:var(--radius);font-size:.88rem;font-weight:500;transition:all .3s;}
+.about-feat:hover{transform:translateX(4px);}
+.af-icon{width:32px;height:32px;border-radius:8px;background:var(--sage-light);display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;}
+.about-hours{max-width:1200px;margin:48px auto 0;padding:40px;border-radius:var(--radius-lg);background:var(--warm-white);border:1px solid rgba(0,0,0,.04);display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.ah-title{font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--navy);margin-bottom:16px;}
+.hours-row{display:flex;justify-content:space-between;padding:10px 0;font-size:.88rem;color:var(--slate);border-bottom:1px solid rgba(0,0,0,.04);}
+.hours-row:last-child{border:none;}
+.hours-row .day{font-weight:600;color:var(--navy);}
+.ah-img{border-radius:var(--radius);overflow:hidden;height:220px;}
+.ah-img img{width:100%;height:100%;object-fit:cover;}
+
+/* ===== WHY US ===== */
+.why-us-section{background:var(--navy);color:var(--warm-white);}
+.why-us-section .section-title{color:var(--warm-white);}
+.why-us-section .section-desc{color:rgba(255,255,255,.6);}
+.why-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:32px;}
+.why-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.06);border-radius:var(--radius-lg);padding:40px 32px;text-align:center;transition:all .4s ease;}
+.why-card:hover{background:rgba(255,255,255,.08);transform:translateY(-4px);}
+.why-icon{width:60px;height:60px;background:rgba(197,164,103,.12);border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:26px;margin:0 auto 20px;}
+.why-card h3{font-family:'Playfair Display',serif;font-size:1.15rem;margin-bottom:10px;}
+.why-card p{color:rgba(255,255,255,.55);font-size:.88rem;line-height:1.6;}
+
+/* ===== GALLERY ===== */
+.ig-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;align-items:start;}
+.ig-wrap{background:var(--warm-white);border:1px solid rgba(0,0,0,.04);border-radius:var(--radius-lg);overflow:hidden;transition:all .3s;}
+.ig-wrap:hover{box-shadow:var(--shadow);}
+.ig-wrap blockquote{margin:0!important;border:none!important;padding:0!important;max-width:100%!important;min-width:100%!important;}
+.tt-section{max-width:1200px;margin:48px auto 0;}
+.tt-section h3{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--navy);margin-bottom:16px;}
+.tt-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:20px;}
+.tt-wrap{background:var(--warm-white);border:1px solid rgba(0,0,0,.04);border-radius:var(--radius-lg);overflow:hidden;}
+.gallery-cta{max-width:1200px;margin:48px auto 0;padding:40px;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--navy),var(--navy-light));display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:20px;}
+.gc-text h3{font-family:'Playfair Display',serif;font-size:1.3rem;color:#fff;margin-bottom:4px;}
+.gc-text p{font-size:.88rem;color:rgba(255,255,255,.45);}
+.gc-btns{display:flex;gap:10px;flex-wrap:wrap;}
+.gc-btn{padding:12px 24px;border-radius:100px;background:var(--gold);color:#fff;font-size:.85rem;font-weight:600;transition:all .3s;display:inline-flex;align-items:center;gap:6px;}
+.gc-btn:hover{background:var(--gold-dark);}
+
+/* ===== REVIEWS ===== */
+.rev-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px;}
+.rev-card{background:var(--warm-white);border-radius:var(--radius-lg);padding:36px 32px;border:1px solid rgba(0,0,0,.04);transition:all .3s;}
+.rev-card:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+.rev-stars{color:var(--gold);font-size:.9rem;letter-spacing:2px;margin-bottom:16px;}
+.rev-text{color:var(--charcoal);font-size:.95rem;line-height:1.7;font-style:italic;margin-bottom:20px;}
+.rev-author{display:flex;align-items:center;gap:12px;}
+.rev-av{width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--warm-white);font-size:.85rem;}
+.rev-name{font-weight:600;font-size:.9rem;color:var(--navy);}
+.rev-role{font-size:.8rem;color:var(--slate);}
+.google-link{max-width:1200px;margin:32px auto 0;display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:100px;background:var(--warm-white);border:1px solid rgba(0,0,0,.04);font-size:.88rem;font-weight:500;transition:all .3s;}
+.google-link:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ===== CONTACT ===== */
+.contact-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:40px;}
+.ci-cards{display:flex;flex-direction:column;gap:12px;}
+.ci-card{padding:22px;border-radius:var(--radius);background:var(--warm-white);border:1px solid rgba(0,0,0,.04);display:flex;align-items:flex-start;gap:14px;transition:all .3s;}
+.ci-card:hover{transform:translateX(4px);box-shadow:var(--shadow);}
+.ci-icon{width:44px;height:44px;border-radius:12px;background:var(--blush);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0;}
+.ci-card h4{font-size:.9rem;font-weight:600;color:var(--navy);margin-bottom:3px;}
+.ci-card p{font-size:.85rem;color:var(--slate);line-height:1.5;}
+.gold-text{color:var(--gold);font-weight:500;}
+.contact-map{border-radius:var(--radius-lg);overflow:hidden;border:1px solid rgba(0,0,0,.04);min-height:440px;}
+.contact-map iframe{width:100%;height:100%;min-height:440px;border:none;}
+.contact-social{max-width:1200px;margin:40px auto 0;padding:32px 40px;border-radius:var(--radius-lg);background:linear-gradient(135deg,var(--navy),var(--navy-light));display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.cs-text h3{font-family:'Playfair Display',serif;font-size:1.1rem;color:#fff;margin-bottom:3px;}
+.cs-text p{font-size:.82rem;color:rgba(255,255,255,.4);}
+.cs-links{display:flex;gap:10px;}
+.cs-link{width:40px;height:40px;border-radius:10px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.5);font-size:12px;font-weight:700;transition:all .3s;}
+.cs-link:hover{background:var(--gold);border-color:var(--gold);color:#fff;}
+
+/* ===== FOOTER ===== */
+footer{background:#111820;padding:64px 48px 32px;}
+.footer-grid{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px;}
+.footer-brand p{color:rgba(255,255,255,.4);font-size:.88rem;line-height:1.6;max-width:300px;margin-top:12px;}
+.ft-col h4{font-family:'Playfair Display',serif;color:var(--warm-white);font-size:1rem;margin-bottom:20px;}
+.ft-col a,.ft-col p{display:block;color:rgba(255,255,255,.4);font-size:.88rem;line-height:2.2;transition:color .3s;}
+.ft-col a:hover{color:var(--gold);}
+.footer-bottom{max-width:1200px;margin:0 auto;border-top:1px solid rgba(255,255,255,.06);padding-top:24px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.footer-bottom p{color:rgba(255,255,255,.25);font-size:.8rem;}
+
+/* ===== WA FLOAT ===== */
+.wa-float{position:fixed;bottom:24px;right:24px;z-index:500;width:56px;height:56px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.4);font-size:26px;color:#fff;transition:all .3s var(--ease);}
+.wa-float:hover{transform:scale(1.08)translateY(-2px);}
+.wa-pulse{position:absolute;inset:-5px;border:2px solid #25D366;border-radius:50%;animation:waP 2s ease-out infinite;}
+@keyframes waP{0%{transform:scale(1);opacity:.5}100%{transform:scale(1.4);opacity:0}}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:768px){
+  nav{padding:16px 20px;}
+  nav.light{padding:12px 20px;}
+  .nav-links{display:none;}
+  .nav-cta{display:none;}
+  .hamburger{display:block;}
+  .section-pad{padding:72px 20px;}
+  .hero-inner{grid-template-columns:1fr;gap:40px;padding:100px 20px 60px;}
+  .hero-right{display:block;}
+  .hero-img{height:300px;}
+  .about-grid,.contact-grid,.about-hours{grid-template-columns:1fr;}
+  .why-grid{grid-template-columns:1fr;}
+  .svc-grid{grid-template-columns:1fr;}
+  .rev-grid{grid-template-columns:1fr;}
+  .ig-grid,.tt-grid{grid-template-columns:1fr;}
+  .about-feats{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;gap:32px;}
+  .footer-bottom{justify-content:center;text-align:center;}
+  .trust-bar{padding:24px 20px;gap:24px;}
+  .svc-cta-box,.gallery-cta,.contact-social{flex-direction:column;text-align:center;}
+  .gc-btns,.cs-links{justify-content:center;}
+  .hero-metrics{gap:20px;}
+  .hero-card{left:12px;right:12px;bottom:12px;padding:14px 16px;}
+}
+</style>
+</head>
+<body>
+
+<div class="preloader" id="preloader"><div class="preloader-tooth"></div></div>
+
+<!-- Nav -->
+<nav id="nav">
+  <a class="nav-logo" href="#" onclick="goPage('home');return false">Glisten<span>.</span></a>
+  <div class="nav-links">
+    <button class="nav-link active" data-page="home">Home</button>
+    <button class="nav-link" data-page="services">Services</button>
+    <button class="nav-link" data-page="about">About</button>
+    <button class="nav-link" data-page="gallery">Gallery</button>
+    <button class="nav-link" data-page="reviews">Reviews</button>
+    <button class="nav-link" data-page="contact">Contact</button>
+  </div>
+  <a href="tel:+2348061171690" class="nav-cta">📞 Book Now</a>
+  <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+</nav>
+
+<div class="mob-menu" id="mobMenu">
+  <button onclick="goPage('home')">Home</button>
+  <button onclick="goPage('services')">Services</button>
+  <button onclick="goPage('about')">About</button>
+  <button onclick="goPage('gallery')">Gallery</button>
+  <button onclick="goPage('reviews')">Reviews</button>
+  <button onclick="goPage('contact')">Contact</button>
+  <a href="tel:+2348061171690" class="mob-cta" onclick="closeMob()">📞 Book Appointment</a>
+</div>
+
+<div class="main-scroll" id="mainScroll">
+
+  <!-- HOME -->
+  <div class="page active" id="page-home">
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-float hf1"></div><div class="hero-float hf2"></div><div class="hero-float hf3"></div>
+      <div class="hero-inner">
+        <div class="hero-text">
+          <div class="hero-badge">A Subsidiary of Advanced Dental Clinic</div>
+          <h1>Your Pathway to a <em>Healthier</em> Smile</h1>
+          <p class="hero-sub">Premium dental care in a warm, welcoming environment. From routine cleanings to advanced cosmetic procedures — your smile is in expert hands.</p>
+          <div class="hero-actions">
+            <a href="tel:+2348061171690" class="btn-primary">📞 Call to Book</a>
+            <button class="btn-secondary" onclick="goPage('services')">Explore Services →</button>
+          </div>
+          <div class="hero-metrics">
+            <div class="hm"><div class="hm-num">4.7★</div><div class="hm-label">Google Rating</div></div>
+            <div class="hm"><div class="hm-num">19+</div><div class="hm-label">Reviews</div></div>
+            <div class="hm"><div class="hm-num">9+</div><div class="hm-label">Services</div></div>
+          </div>
+        </div>
+        <div class="hero-right">
+          <div class="hero-img">
+            <img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=800&q=80" alt="Dental care">
+            <div class="hero-img-overlay"></div>
+            <div class="hero-card">
+              <div class="hc-icon">🦷</div>
+              <div class="hc-text"><h4>Wuse Zone 3, Abuja</h4><p>6 Tamale St · Mon–Sat 9AM–9PM</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="trust-bar">
+      <div class="trust-item"><div class="trust-icon">🏥</div>State-of-the-Art Facility</div>
+      <div class="trust-item"><div class="trust-icon">👨‍⚕️</div>Experienced Specialists</div>
+      <div class="trust-item"><div class="trust-icon">💎</div>Premium Materials</div>
+      <div class="trust-item"><div class="trust-icon">🤝</div>Patient-Centred Care</div>
+    </div>
+  </div>
+
+  <!-- SERVICES -->
+  <div class="page" id="page-services">
+    <div class="section-pad" style="background:var(--cream);">
+      <div class="section-header">
+        <div class="section-tag">Our Services</div>
+        <h2 class="section-title">Comprehensive Dental Solutions</h2>
+        <p class="section-desc">Every treatment is delivered with precision, care, and the latest dental technology.</p>
+      </div>
+      <div class="svc-grid">
+        <div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1609840114035-3c981b782dfe?w=600&q=80" alt="Whitening"></div><div class="svc-card-body"><div class="svc-icon">✨</div><h3>Teeth Whitening</h3><p>Professional-grade whitening that removes years of stains for a brilliantly radiant smile.</p></div></div>
+        <div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600&q=80" alt="Veneers"></div><div class="svc-card-body"><div class="svc-icon">💎</div><h3>E-Max Veneers</h3><p>Premium E-Max porcelain veneers for a natural, magazine-cover smile transformation.</p></div></div>
+        <div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1598256989800-fe5f95da9787?w=600&q=80" alt="Braces"></div><div class="svc-card-body"><div class="svc-icon">📐</div><h3>Braces & Invisalign</h3><p>Traditional braces and Invisalign clear aligners to straighten teeth and perfect your bite.</p></div></div>
+        <div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=600&q=80" alt="Scaling"></div><div class="svc-card-body"><div class="svc-icon">🪥</div><h3>Scaling & Polishing</h3><p>Deep cleaning to remove plaque and tartar for fresher breath and healthier gums.</p></div></div>
+        <div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=600&q=80" alt="Root Canal"></div><div class="svc-card-body"><div class="svc-icon">🔧</div><h3>Root Canal Therapy</h3><p>Expert procedures to relieve pain and preserve your natural tooth with minimal discomfort.</p></div></div>
+        <div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1606265752439-1f18756aa5fc?w=600&q=80" alt="Implants"></div><div class="svc-card-body"><div class="svc-icon">🦷</div><h3>Dental Implants</h3><p>I-Bar Titanium with Zircon implants for permanent, confident tooth replacement.</p></div></div>
+        <div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1588776813677-77aaf5595b83?w=600&q=80" alt="Fillings"></div><div class="svc-card-body"><div class="svc-icon">🩹</div><h3>Dental Fillings</h3><p>Durable, aesthetic fillings using the latest composite and ceramic materials.</p></div></div>
+        <div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&q=80" alt="Extractions"></div><div class="svc-card-body"><div class="svc-icon">🦷</div><h3>Wisdom Teeth Removal</h3><p>Safe, precise extractions with comprehensive aftercare guidance.</p></div></div>
+        <div class="svc-card"><div class="svc-card-img"><img src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?w=600&q=80" alt="Crowns"></div><div class="svc-card-body"><div class="svc-icon">👑</div><h3>Crowns & Dentures</h3><p>Custom crowns and dentures to restore function and beauty of your smile.</p></div></div>
+      </div>
+      <div class="svc-cta-box">
+        <div class="svc-cta-text"><h3>💬 Free Consultations Available</h3><p>Contact us on WhatsApp for pricing and to book your appointment.</p></div>
+        <a href="https://wa.me/2348061171690?text=Hi%20Glisten%20Dental!%20I'd%20like%20to%20enquire%20about%20pricing." class="btn-primary">WhatsApp Us →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ABOUT -->
+  <div class="page" id="page-about">
+    <div class="section-pad" style="background:var(--warm-white);padding-top:120px;">
+      <div class="about-grid">
+        <div class="about-img-wrap">
+          <img src="https://images.unsplash.com/photo-1629909615184-74f495363b67?w=800&q=80" alt="Glisten Dental Clinic">
+          <div class="about-accent"><div class="about-accent-num">4.7</div><div class="about-accent-label">Google Rating</div></div>
+        </div>
+        <div class="about-text">
+          <div class="section-tag">About Us</div>
+          <h2 class="section-title">Where Expertise Meets Compassion</h2>
+          <p>Glisten Dental Clinic is your top choice for comprehensive dental care at 6 Tamale Street, Wuse Zone 3, Abuja. As a subsidiary of Advanced Dental Clinic, our expert team specialises in teeth whitening, veneers, braces, dental implants, and much more.</p>
+          <p>Whether you need routine cleanings, root canal procedures, wisdom teeth removal, or custom dentures, our modern facility delivers exceptional care tailored to your needs.</p>
+          <div class="about-feats">
+            <div class="about-feat"><div class="af-icon">🔬</div>Modern Equipment</div>
+            <div class="about-feat"><div class="af-icon">👶</div>Child-Friendly</div>
+            <div class="about-feat"><div class="af-icon">💆</div>Anxiety-Free Care</div>
+            <div class="about-feat"><div class="af-icon">📋</div>Personalised Plans</div>
+            <div class="about-feat"><div class="af-icon">🏆</div>Titanium Implants</div>
+            <div class="about-feat"><div class="af-icon">✨</div>E-Max Veneers</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-hours">
+        <div>
+          <h3 class="ah-title">🕐 Opening Hours</h3>
+          <div class="hours-row"><span class="day">Monday – Friday</span><span>9:00 AM – 9:00 PM</span></div>
+          <div class="hours-row"><span class="day">Saturday</span><span>9:00 AM – 9:00 PM</span></div>
+          <div class="hours-row"><span class="day">Sunday</span><span>Closed</span></div>
+        </div>
+        <div class="ah-img"><img src="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=600&q=80" alt="Clinic"></div>
+      </div>
+    </div>
+    <!-- Why Us section inside About page -->
+    <div class="why-us-section section-pad">
+      <div class="section-header"><div class="section-tag">Why Choose Us</div><h2 class="section-title">The Glisten Difference</h2><p class="section-desc">We go beyond treatment — we build lasting relationships with our patients and their smiles.</p></div>
+      <div class="why-grid">
+        <div class="why-card"><div class="why-icon">🎯</div><h3>Precision Treatment</h3><p>Every procedure is executed with meticulous attention to detail using advanced dental technology.</p></div>
+        <div class="why-card"><div class="why-icon">💛</div><h3>Patient-First Approach</h3><p>We listen, educate, and craft treatment plans around your unique needs.</p></div>
+        <div class="why-card"><div class="why-icon">🏆</div><h3>Proven Legacy</h3><p>As part of Advanced Dental Clinic, we inherit years of expertise and a reputation for excellence.</p></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GALLERY -->
+  <div class="page" id="page-gallery">
+    <div class="section-pad" style="background:var(--cream);padding-top:120px;">
+      <div class="section-header"><div class="section-tag">Gallery & Social</div><h2 class="section-title">See Our Work</h2><p class="section-desc">Real results from real patients. Follow us for smile transformations and offers.</p></div>
+      <div class="ig-grid" id="igGrid">
+        <div class="ig-wrap">
+          <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DQ32WZ8DMiB/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:540px;min-width:280px;padding:0;width:100%;"><div style="padding:16px"><a href="https://www.instagram.com/reel/DQ32WZ8DMiB/" style="color:#000;font-size:14px;" target="_blank">View Reel on Instagram</a></div></blockquote>
+        </div>
+        <div class="ig-wrap">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/glistendentalclinic/" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:0;max-width:540px;min-width:280px;padding:0;width:100%;"><div style="padding:16px"><a href="https://www.instagram.com/glistendentalclinic/" style="color:#000;font-size:14px;" target="_blank">@glistendentalclinic</a></div></blockquote>
+        </div>
+      </div>
+      <div class="tt-section"><h3>🎵 TikTok</h3>
+        <div class="tt-grid"><div class="tt-wrap">
+          <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@glistendentalclincabuja" data-unique-id="glistendentalclincabuja" data-embed-type="creator" style="max-width:780px;min-width:288px;"><section><a target="_blank" href="https://www.tiktok.com/@glistendentalclincabuja">@glistendentalclincabuja</a></section></blockquote>
+        </div></div>
+      </div>
+      <div class="gallery-cta">
+        <div class="gc-text"><h3>Follow Us for More</h3><p>Daily transformations and exclusive offers</p></div>
+        <div class="gc-btns">
+          <a href="https://www.instagram.com/glistendentalclinic/" target="_blank" class="gc-btn">📷 Instagram</a>
+          <a href="https://www.tiktok.com/@glistendentalclincabuja" target="_blank" class="gc-btn">🎵 TikTok</a>
+          <a href="https://www.facebook.com/glistendentalclinic/" target="_blank" class="gc-btn">📘 Facebook</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="page" id="page-reviews">
+    <div class="section-pad" style="background:var(--cream);padding-top:120px;">
+      <div class="section-header"><div class="section-tag">Patient Stories</div><h2 class="section-title">What Our Patients Say</h2><p class="section-desc">Real experiences from real patients who trusted us with their smiles.</p></div>
+      <div class="rev-grid">
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"The clinic is immaculately clean and the staff are so welcoming. I was terrified of the dentist but Glisten made me feel completely at ease. My whitening results are amazing!"</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--gold),var(--gold-dark))">AA</div><div><div class="rev-name">Adaeze A.</div><div class="rev-role">Teeth Whitening</div></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Number one dental clinic in Abuja! The children love coming — friendly environment and incredibly patient dentists. Highly recommend for the whole family."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--sage),#5A8A5A)">OK</div><div><div class="rev-name">Olumide K.</div><div class="rev-role">Family Patient</div></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Had a root canal done here and the experience was nothing like I feared. Professional, painless, and thorough aftercare. These are dentists who truly care."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#7C5CBF,#5A3D9E)">FI</div><div><div class="rev-name">Fatima I.</div><div class="rev-role">Root Canal</div></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Got my E-Max veneers done at Glisten and I'm absolutely over the moon. Natural-looking, comfortable, and explained every step of the way."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#E8735A,#C25A42)">BT</div><div><div class="rev-name">Binta T.</div><div class="rev-role">E-Max Veneers</div></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"Best dental clinic in Wuse! Scaling was quick, painless, and my teeth have never felt this clean. Staff go above and beyond."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,var(--gold),#C77D33)">EN</div><div><div class="rev-name">Emeka N.</div><div class="rev-role">Scaling & Polishing</div></div></div></div>
+        <div class="rev-card"><div class="rev-stars">★★★★★</div><p class="rev-text">"A clinic that feels calm and welcoming. The attentive care was delightful — the friendly team at Glisten is there to help you every step."</p><div class="rev-author"><div class="rev-av" style="background:linear-gradient(135deg,#4A7EC6,#365DA0)">AS</div><div><div class="rev-name">Amina S.</div><div class="rev-role">General Care</div></div></div></div>
+      </div>
+      <a href="https://www.google.com/search?q=Glisten+Dental+Clinic+Abuja+reviews" target="_blank" class="google-link">⭐ See all reviews on Google →</a>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="page" id="page-contact">
+    <div class="section-pad" style="background:var(--cream);padding-top:120px;">
+      <div class="section-header"><div class="section-tag">Get in Touch</div><h2 class="section-title">Visit Us Today</h2><p class="section-desc">Book an appointment or walk in during opening hours.</p></div>
+      <div class="contact-grid">
+        <div class="ci-cards">
+          <div class="ci-card"><div class="ci-icon">📍</div><div><h4>Address</h4><p>6 Tamale Street, behind FRSC HQ<br>Opp. Federal Civil Service Commission<br>Wuse Zone 3, Abuja 904101, FCT</p></div></div>
+          <a href="tel:+2348061171690" class="ci-card"><div class="ci-icon">📞</div><div><h4>Phone</h4><p><span class="gold-text">+234 806 117 1690</span></p></div></a>
+          <a href="https://wa.me/2348061171690?text=Hi%20Glisten%20Dental!%20I'd%20like%20to%20book%20an%20appointment." target="_blank" class="ci-card"><div class="ci-icon">💬</div><div><h4>WhatsApp</h4><p><span class="gold-text">Message us directly →</span></p></div></a>
+          <a href="mailto:glistendentalclinic@gmail.com" class="ci-card"><div class="ci-icon">✉️</div><div><h4>Email</h4><p><span class="gold-text">glistendentalclinic@gmail.com</span></p></div></a>
+          <div class="ci-card"><div class="ci-icon">🕐</div><div><h4>Opening Hours</h4><p>Mon – Sat: 9 AM – 9 PM<br>Sunday: Closed</p></div></div>
+        </div>
+        <div class="contact-map"><iframe src="https://www.google.com/maps?q=6+Tamale+Street+Wuse+Zone+3+Abuja&output=embed" allowfullscreen loading="lazy"></iframe></div>
+      </div>
+      <div class="contact-social">
+        <div class="cs-text"><h3>Follow Glisten Dental</h3><p>Offers, transformations & oral health tips</p></div>
+        <div class="cs-links">
+          <a href="https://www.instagram.com/glistendentalclinic/" target="_blank" class="cs-link">IG</a>
+          <a href="https://www.tiktok.com/@glistendentalclincabuja" target="_blank" class="cs-link">TK</a>
+          <a href="https://www.facebook.com/glistendentalclinic/" target="_blank" class="cs-link">FB</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="nav-logo" style="color:#fff">Glisten<span>.</span></div>
+        <p>A subsidiary of Advanced Dental Clinic. Premium dental care in Wuse Zone 3, Abuja.</p>
+      </div>
+      <div class="ft-col"><h4>Navigate</h4>
+        <a href="#" onclick="goPage('home');return false">Home</a>
+        <a href="#" onclick="goPage('services');return false">Services</a>
+        <a href="#" onclick="goPage('about');return false">About</a>
+        <a href="#" onclick="goPage('gallery');return false">Gallery</a>
+      </div>
+      <div class="ft-col"><h4>Services</h4>
+        <a href="#" onclick="goPage('services');return false">Teeth Whitening</a>
+        <a href="#" onclick="goPage('services');return false">E-Max Veneers</a>
+        <a href="#" onclick="goPage('services');return false">Braces & Invisalign</a>
+        <a href="#" onclick="goPage('services');return false">Dental Implants</a>
+      </div>
+      <div class="ft-col"><h4>Contact</h4>
+        <p>6 Tamale Street</p>
+        <p>Wuse Zone 3, Abuja 904101</p>
+        <p>FCT, Nigeria</p>
+        <a href="tel:+2348061171690">+234 806 117 1690</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Glisten Dental Clinic. All rights reserved.</p>
+      <p style="color:rgba(255,255,255,.15);font-size:.7rem;">Built by Balancewise Technologies</p>
+    </div>
+  </footer>
+</div>
+
+<a href="https://wa.me/2348061171690?text=Hi%20Glisten%20Dental!%20I'd%20like%20to%20book%20an%20appointment." target="_blank" class="wa-float">💬<div class="wa-pulse"></div></a>
+
+<script async src="//www.instagram.com/embed.js"></script>
+<script async src="https://www.tiktok.com/embed.js"></script>
+
+<script>
+window.addEventListener('load',()=>{setTimeout(()=>document.getElementById('preloader').classList.add('done'),600)});
+
+let currentPage='home';
+const nav=document.getElementById('nav');
+const mainScroll=document.getElementById('mainScroll');
+
+function updateNav(){
+  if(currentPage==='home'){nav.classList.toggle('light',mainScroll.scrollTop>60);}
+  else{nav.classList.add('light');}
+}
+mainScroll.addEventListener('scroll',updateNav);
+
+function goPage(name){
+  currentPage=name;
+  document.querySelectorAll('.nav-link').forEach(b=>b.classList.remove('active'));
+  const nb=document.querySelector('.nav-link[data-page="'+name+'"]');
+  if(nb)nb.classList.add('active');
+  document.querySelectorAll('.mob-menu button').forEach(b=>b.classList.toggle('active',b.textContent.trim().toLowerCase()===name));
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  const pg=document.getElementById('page-'+name);
+  if(pg)pg.classList.add('active');
+  mainScroll.scrollTo({top:0,behavior:'instant'});
+  updateNav();
+  closeMob();
+  if(name==='gallery'){setTimeout(()=>{if(window.instgrm)window.instgrm.Embeds.process();},400);}
+}
+
+document.querySelectorAll('.nav-link').forEach(b=>{b.addEventListener('click',()=>goPage(b.dataset.page))});
+
+const ham=document.getElementById('hamburger'),mob=document.getElementById('mobMenu');
+ham.addEventListener('click',()=>{ham.classList.toggle('open');mob.classList.toggle('open');});
+function closeMob(){ham.classList.remove('open');mob.classList.remove('open');}
+</script>
+</body>
+</html>
